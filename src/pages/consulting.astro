@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const expertise = [
+  {
+    title: 'Firmware & Embedded Systems Security',
+    body: 'Analysis pipelines, firmware decomposition, rehosting/emulation, capability extraction, and security triage.',
+  },
+  {
+    title: 'Reverse Engineering & Vulnerability Research',
+    body: 'Static and dynamic binary analysis, structural matching, similarity workflows, and automated vulnerability discovery.',
+  },
+  {
+    title: 'AI / ML Integration for Security Workflows',
+    body: 'Applying LLMs and ML models for component matching, capability inference, annotation, reasoning, and automated reporting.',
+  },
+  {
+    title: 'Automated Analysis Pipelines',
+    body: 'Microservice-based architectures, containerized workflows, scalable decomposition/matching systems, and backend design.',
+  },
+  {
+    title: 'Digital Twin & Rehosting Architectures',
+    body: 'Design and integration of embedded-system execution environments for testing, introspection, and firmware experimentation.',
+  },
+  {
+    title: 'Technical Leadership & R&D Strategy',
+    body: 'Program design, roadmap definition, proposal development, research framing, and cross-team alignment.',
+  },
+];
+
+const engagementTypes = [
+  'Architecture design & technical strategy',
+  'Capability prototyping and workflow development',
+  'Research-oriented collaboration',
+  'System integration guidance',
+  'Technical evaluation of tools or processes',
+];
+---
+
+<BaseLayout title="Consulting">
+  <PageHeader
+    eyebrow="Consulting & Advisory"
+    title="Selective engagements"
+    lede="I provide consulting and advisory support for organizations working in cybersecurity, embedded systems, and advanced program analysis — helping teams integrate modern analysis techniques, automate complex workflows, and design scalable architectures for real-world systems."
+  />
+
+  <section class="container-wide pb-12">
+    <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">Areas of expertise</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      {expertise.map(e => (
+        <article class="card">
+          <h3 class="text-base font-semibold">{e.title}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{e.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-wide py-12 grid gap-12 md:grid-cols-[1fr_1fr]">
+    <div>
+      <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">How I work</h2>
+      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
+        I support a limited number of engagements, generally focused on:
+      </p>
+      <ul class="space-y-3 text-sm text-[var(--color-text-muted)]">
+        {engagementTypes.map(t => (
+          <li class="flex gap-3">
+            <span aria-hidden="true" class="mt-2 h-1 w-1 shrink-0 rounded-full" style="background:var(--color-accent-dim)"></span>
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-sm text-[var(--color-text-muted)] leading-relaxed">
+        Engagements can be short-term advisory or longer-term research collaboration depending on scope and needs.
+      </p>
+    </div>
+    <div class="card self-start">
+      <h2 class="text-lg font-semibold">Inquire about availability</h2>
+      <p class="mt-3 text-sm text-[var(--color-text-muted)] leading-relaxed">
+        To discuss a potential engagement, email me directly. Please include a brief description of the work, target outcome, and timeline.
+      </p>
+      <a href="mailto:cwright7101@gmail.com?subject=Consulting%20inquiry" class="mt-6 btn-primary">
+        Email Christopher
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

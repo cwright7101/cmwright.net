@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const competencies = [
+  {
+    title: 'Firmware & Embedded Systems Security',
+    items: [
+      'Firmware decomposition, filesystem reconstruction, metadata extraction',
+      'Rehosting and emulation for embedded systems',
+      'Capability identification, SBOM/FBOM production, component mapping',
+    ],
+  },
+  {
+    title: 'Reverse Engineering & Binary Analysis',
+    items: [
+      'Static and dynamic analysis, control-/data-flow extraction',
+      'Intermediate representation engineering (GTIRB, p-code, lifted IRs)',
+      'Function/database similarity, structural and semantic matching',
+    ],
+  },
+  {
+    title: 'AI / ML for Program Analysis',
+    items: [
+      'LLM-driven reasoning for automated triage, annotation, and reporting',
+      'Vector-based similarity and component-identification models',
+      'Policy inference and automated component-level behavior modeling',
+    ],
+  },
+  {
+    title: 'Automated & Scalable Workflow Design',
+    items: [
+      'Microservice-based architectures for large-scale analysis',
+      'Containerized pipelines, orchestration frameworks, and backend APIs',
+      'Automated multi-step analysis paths for diverse firmware sets',
+    ],
+  },
+  {
+    title: 'Digital Twin & Rehosting Architectures',
+    items: [
+      'High-fidelity emulation for firmware experimentation and introspection',
+      'Peripheral/hardware modeling and hybrid analysis workflows',
+      'Integration of execution engines into multi-tool analysis systems',
+    ],
+  },
+];
+
+const differentiators = [
+  'Deep expertise in firmware and embedded-system analysis across architectures',
+  'Ability to combine RE, static/dynamic analysis, and AI/ML into unified platforms',
+  'End-to-end system design: research concepts → architectures → prototypes → demos',
+  'Experience leading complex multi-team research programs',
+  'Strong technical writing, proposal strategy, and customer-facing communication',
+  'Demonstrated ability to deliver high-quality analysis outputs at scale',
+];
+
+const pastWork = [
+  'Large-scale firmware and binary corpora analysis',
+  'ICS/OT systems, embedded controllers, and cyber-physical devices',
+  'Automated analysis tools for national-security research',
+  'Rehosting and execution environments for testing and vulnerability discovery',
+  'Programming languages, compilers, HPC systems, distributed pipelines',
+  'Applied AI/ML frameworks integrated into analysis platforms',
+];
+---
+
+<BaseLayout title="Capabilities">
+  <PageHeader
+    eyebrow="Capabilities Statement"
+    title="Capabilities"
+    lede="Technical areas, research strengths, and solution-development expertise across cybersecurity, firmware analysis, reverse engineering, and automated program-analysis pipelines."
+  />
+
+  <section class="container-wide pb-12">
+    <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">Core competencies</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      {competencies.map(c => (
+        <article class="card">
+          <h3 class="text-base font-semibold">{c.title}</h3>
+          <ul class="mt-4 space-y-2 text-sm text-[var(--color-text-muted)]">
+            {c.items.map(i => (
+              <li class="flex gap-3">
+                <span aria-hidden="true" class="mt-2 h-1 w-1 shrink-0 rounded-full" style="background:var(--color-accent-dim)"></span>
+                <span>{i}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-wide py-12 grid gap-12 md:grid-cols-2">
+    <div>
+      <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">Differentiators</h2>
+      <ul class="space-y-3 text-sm text-[var(--color-text-muted)]">
+        {differentiators.map(d => (
+          <li class="flex gap-3">
+            <span aria-hidden="true" class="mt-2 h-1 w-1 shrink-0 rounded-full" style="background:var(--color-accent-dim)"></span>
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">Past work & domains</h2>
+      <ul class="space-y-3 text-sm text-[var(--color-text-muted)]">
+        {pastWork.map(d => (
+          <li class="flex gap-3">
+            <span aria-hidden="true" class="mt-2 h-1 w-1 shrink-0 rounded-full" style="background:var(--color-accent-dim)"></span>
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

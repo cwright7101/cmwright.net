@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import headshot from '../assets/headshot.jpg';
+---
+
+<BaseLayout title="Home">
+  <section class="container-wide pt-20 pb-20 md:pt-28 md:pb-28">
+    <div class="grid gap-12 md:grid-cols-[1.35fr_1fr] md:items-center">
+      <div>
+        <div class="eyebrow animate-in" style="animation-delay:50ms">Principal Scientist · Principal Investigator</div>
+
+        <h1 class="mt-5 text-5xl md:text-6xl font-semibold tracking-tight animate-in" style="animation-delay:120ms">
+          Christopher M. Wright,
+          <span class="block gradient-text">Ph.D.</span>
+        </h1>
+
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] animate-in" style="animation-delay:240ms">
+          I lead advanced R&amp;D in <strong class="text-[var(--color-text)] font-semibold">firmware security</strong>,
+          <strong class="text-[var(--color-text)] font-semibold">GPU reverse engineering</strong>, and
+          <strong class="text-[var(--color-text)] font-semibold">automated vulnerability discovery</strong>
+          at GrammaTech — combining static and dynamic analysis, rehosting, and AI-driven reasoning to
+          accelerate reverse engineering of real-world embedded systems and AI infrastructure.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-2 animate-in" style="animation-delay:340ms">
+          <span class="chip">firmware security</span>
+          <span class="chip">GPU reverse engineering</span>
+          <span class="chip">vulnerability research</span>
+          <span class="chip">AI red-teaming</span>
+          <span class="chip">building with AI</span>
+          <span class="chip">binary analysis</span>
+          <span class="chip">Ghidra · GTIRB</span>
+          <span class="chip">rehosting</span>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3 animate-in" style="animation-delay:420ms">
+          <a href="/projects" class="btn-primary">
+            View projects
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/contact" class="btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-sm md:max-w-none animate-in" style="animation-delay:180ms">
+        <div
+          aria-hidden="true"
+          class="absolute -inset-6 -z-10 rounded-[2rem] blur-2xl opacity-70"
+          style="background:radial-gradient(60% 60% at 30% 40%, var(--color-accent-glow), transparent 70%), radial-gradient(50% 50% at 80% 80%, oklch(0.75 0.16 220 / 0.20), transparent 70%)"
+        ></div>
+        <div
+          class="relative overflow-hidden rounded-[1.75rem] border"
+          style="border-color:var(--color-border); box-shadow: var(--shadow-elevated)"
+        >
+          <Image
+            src={headshot}
+            alt="Christopher M. Wright"
+            widths={[320, 480, 640, 800]}
+            sizes="(max-width: 768px) 80vw, 380px"
+            class="block h-auto w-full"
+            loading="eager"
+            quality={82}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-wide py-20">
+    <div class="flex items-end justify-between mb-10">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">What I work on</h2>
+      <a href="/research" class="hidden md:inline-flex items-center gap-1 text-sm link-accent">
+        All research areas
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <a href="/research" class="card group">
+        <div class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Research</div>
+        <h3 class="mt-3 text-xl font-semibold group-hover:text-[var(--color-accent)] transition-colors">Eight active research areas</h3>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">Firmware security, GPU reverse engineering, vulnerability research, AI-augmented tooling, AI red-teaming, programming languages and compilers, emulation and digital twins, HPC.</p>
+      </a>
+      <a href="/projects" class="card group">
+        <div class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Programs</div>
+        <h3 class="mt-3 text-xl font-semibold group-hover:text-[var(--color-accent)] transition-colors">Ghidra GPU Modules · REAGRIND · HALucinator · REAFFIRM</h3>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">Authoring open-source Ghidra processor modules for NVIDIA, AMD, Intel, and Apple GPUs; building REAGRIND + WarpGrind on top of them; leading firmware rehosting and digital twins (HALucinator); and AI-assisted firmware analysis pipelines (REAFFIRM, FABLE).</p>
+      </a>
+      <a href="/publications" class="card group">
+        <div class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Publications</div>
+        <h3 class="mt-3 text-xl font-semibold group-hover:text-[var(--color-accent)] transition-colors">Peer-reviewed work</h3>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">ACM Computing Surveys, ICS, ACM-BCB, BAR, AlCoB — spanning firmware security and computational genomics.</p>
+      </a>
+      <a href="/consulting" class="card group">
+        <div class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Consulting</div>
+        <h3 class="mt-3 text-xl font-semibold group-hover:text-[var(--color-accent)] transition-colors">Selective advisory engagements</h3>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">Architecture design, capability prototyping, and research collaboration for cybersecurity and embedded-systems teams.</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

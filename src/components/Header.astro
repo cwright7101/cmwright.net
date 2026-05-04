@@ -1,0 +1,107 @@
+---
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/research', label: 'Research' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/cv', label: 'CV' },
+  { href: '/consulting', label: 'Consulting' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="sticky top-0 z-50">
+  <div class="absolute inset-0 -z-10 backdrop-blur-xl" style="background:color-mix(in oklch, var(--color-bg) 80%, transparent);"></div>
+  <div class="absolute inset-x-0 bottom-0 h-px" style="background:linear-gradient(90deg, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent)"></div>
+
+  <div class="container-wide flex h-16 items-center justify-between">
+    <a href="/" class="group flex items-center gap-2 text-base font-semibold tracking-tight text-[var(--color-text)]">
+      <span class="inline-block h-2 w-2 rounded-full transition-transform duration-300 group-hover:scale-125" style="background:var(--color-accent); box-shadow:0 0 12px var(--color-accent-glow)"></span>
+      Christopher Wright
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {nav.map(item => {
+        const active = path === item.href || (item.href !== '/' && path.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'relative rounded-full px-3.5 py-1.5 text-sm transition-colors',
+              active
+                ? 'text-[var(--color-text)]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
+            ]}
+          >
+            {active && (
+              <span class="absolute inset-0 -z-10 rounded-full" style="background:var(--color-bg-elevated); border:1px solid var(--color-border)"></span>
+            )}
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button
+        id="theme-toggle"
+        class="icon-btn"
+        aria-label="Toggle color theme"
+        title="Toggle theme"
+      >
+        <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+
+      <button
+        id="menu-toggle"
+        class="icon-btn md:hidden"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="hidden md:hidden" aria-label="Mobile">
+    <div class="container-wide flex flex-col py-3">
+      {nav.map(item => (
+        <a href={item.href} class="py-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">{item.label}</a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  menuBtn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn?.addEventListener('click', () => {
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    if (next === 'dark') {
+      document.documentElement.dataset.theme = 'dark';
+    } else {
+      delete document.documentElement.dataset.theme;
+    }
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+</script>

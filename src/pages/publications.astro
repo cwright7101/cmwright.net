@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const groups = [
+  {
+    section: 'Firmware, Emulation, and Security',
+    items: [
+      {
+        authors: 'C. Wright, W. Moeglein, S. Bagchi, M. Kulkarni, A. Clements',
+        title: 'Challenges in Firmware Re-Hosting, Emulation, and Analysis',
+        venue: 'ACM Computing Surveys, 54(1), Article 5',
+        year: 2022,
+      },
+      {
+        authors: 'A. Clements, L. Carpenter, W. Moeglein, C. Wright',
+        title: 'Is Your Firmware Real or Re-Hosted?',
+        venue: 'Workshop on Binary Analysis Research (BAR)',
+        year: 2021,
+      },
+    ],
+  },
+  {
+    section: 'Domain-Specific Languages, Compilers, & Genomics',
+    items: [
+      {
+        authors: 'K. Mahadik, C. Wright, J. Zhang, M. Kulkarni, S. Bagchi, S. Chaterji',
+        title: 'SARVAVID: A Domain Specific Language for Developing Scalable Computational Genomics Applications',
+        venue: 'ICS ’16: Proceedings of the 30th ACM International Conference on Supercomputing',
+        year: 2016,
+      },
+      {
+        authors: 'K. Mahadik, C. Wright, M. Kulkarni, S. Bagchi, S. Chaterji',
+        title: 'Scalable Genomic Assembly through Parallel de Bruijn Graph Construction for Multiple K-mers',
+        venue: 'ACM-BCB ’17: 8th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics',
+        year: 2017,
+      },
+      {
+        authors: 'K. Mahadik, C. Wright, M. Kulkarni, S. Bagchi, S. Chaterji',
+        title: 'Scalable Genome Assembly through Parallel de-Bruijn Graph Construction for Multiple k-mers',
+        venue: 'Extended publication',
+        year: 2019,
+      },
+      {
+        authors: 'C. Wright, S. Krishnamoorty, M. Kulkarni',
+        title: 'Multi-k de Bruijn Graph Based Genome Assembly',
+        venue: 'AlCoB ’19: International Conference on Algorithms for Computational Biology',
+        year: 2019,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Publications">
+  <PageHeader
+    eyebrow="Publications"
+    title="Selected work"
+    lede="Peer-reviewed publications spanning firmware security and re-hosting, domain-specific languages, and computational genomics."
+  />
+
+  <section class="container-wide pb-24">
+    {groups.map(g => (
+      <div class="mb-14">
+        <h2 class="text-sm font-medium mb-6" style="color:var(--color-accent)">{g.section}</h2>
+        <ol class="space-y-6">
+          {g.items.map(p => (
+            <li class="card">
+              <div class="text-base font-semibold leading-snug">{p.title}</div>
+              <div class="mt-2 text-sm text-[var(--color-text-muted)]">{p.authors}</div>
+              <div class="mt-1.5 text-sm text-[var(--color-text-dim)]">
+                <span class="italic">{p.venue}</span> · {p.year}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

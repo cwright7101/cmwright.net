@@ -1,0 +1,19 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+}
+
+const { eyebrow, title, lede } = Astro.props;
+---
+
+<section class="container-wide pt-20 pb-12 md:pt-28 md:pb-16">
+  {eyebrow && (
+    <div class="eyebrow mb-4 animate-in" style="animation-delay:50ms">{eyebrow}</div>
+  )}
+  <h1 class="text-5xl md:text-6xl font-semibold tracking-tight animate-in" style="animation-delay:100ms">{title}</h1>
+  {lede && (
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] animate-in" style="animation-delay:200ms">{lede}</p>
+  )}
+</section>

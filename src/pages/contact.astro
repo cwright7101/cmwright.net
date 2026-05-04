@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const interests = [
+  'Firmware and embedded-system security',
+  'Reverse engineering and vulnerability research',
+  'AI / ML-driven program analysis',
+  'Digital-twin and rehosting workflows',
+  'Research collaborations and proposal discussions',
+];
+---
+
+<BaseLayout title="Contact">
+  <PageHeader
+    eyebrow="Contact"
+    title="Get in touch"
+    lede="If you'd like to discuss collaboration opportunities, research partnerships, consulting engagements, or technical questions — please reach out directly."
+  />
+
+  <section class="container-wide pb-24 grid gap-10 md:grid-cols-[1.2fr_1fr]">
+    <div>
+      <h2 class="text-sm font-medium mb-5" style="color:var(--color-accent)">I welcome inquiries about</h2>
+      <ul class="space-y-3 text-sm text-[var(--color-text-muted)]">
+        {interests.map(i => (
+          <li class="flex gap-3">
+            <span aria-hidden="true" class="mt-2 h-1 w-1 shrink-0 rounded-full" style="background:var(--color-accent-dim)"></span>
+            <span>{i}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 text-sm text-[var(--color-text-dim)]">I typically respond within 1–3 business days.</p>
+    </div>
+
+    <div class="card self-start">
+      <h2 class="text-lg font-semibold">Direct contact</h2>
+      <dl class="mt-5 space-y-4 text-sm">
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Personal email</dt>
+          <dd class="mt-1"><a class="link-underline" href="mailto:cwright7101@gmail.com">cwright7101@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Work email</dt>
+          <dd class="mt-1"><a class="link-underline" href="mailto:cwright@grammatech.com">cwright@grammatech.com</a></dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">LinkedIn</dt>
+          <dd class="mt-1"><a class="link-underline" href="https://www.linkedin.com/in/cmwright">linkedin.com/in/cmwright</a></dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">GitHub</dt>
+          <dd class="mt-1"><a class="link-underline" href="https://github.com/cwright7101">github.com/cwright7101</a></dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Location</dt>
+          <dd class="mt-1 text-[var(--color-text-muted)]">Mansfield, TX</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const areas = [
+  {
+    title: 'Firmware & Embedded Systems Security',
+    body: 'I develop techniques and tooling for analyzing firmware at scale, including decomposition, capability extraction, component identification, and automated reporting. My work spans rehosting, emulation, FBOM/SBOM generation, and AI-assisted reasoning to accelerate vulnerability discovery across diverse embedded architectures.',
+  },
+  {
+    title: 'GPU Reverse Engineering & Cybersecurity',
+    body: 'GPUs run the world\'s most sensitive AI workloads, but compiled GPU code has been largely opaque to security researchers — no widely available equivalent of Ghidra for SASS, no Valgrind for GPU memory bugs, no AFL for fuzzing GPU kernels. My work closes that gap: open-source Ghidra processor modules for NVIDIA, AMD, Intel, and Apple GPUs; REAGRIND, an analysis platform that runs 24+ passes including CWE detectors and GPU Bill-of-Materials extraction; and WarpGrind, the first open-source GPU binary rewriting toolkit. Together they bring CPU-class binary analysis to the AI infrastructure layer.',
+  },
+  {
+    title: 'Reverse Engineering & Vulnerability Research',
+    body: 'I integrate static and dynamic analysis, control- and data-flow extraction, IR design, binary lifting, and structural similarity into end-to-end vulnerability research that finds real bugs in real binaries. The work spans the spectrum from low-level instruction decoding through coverage-guided fuzzing, taint tracking, and CWE-class detection — increasingly augmented with model-driven reasoning to scale across firmware, GPU, and AI codebases.',
+  },
+  {
+    title: 'AI-Augmented Analysis & Tooling',
+    body: 'I build with AI as a first-class capability, not a research curiosity. This includes LLM-driven analysts that triage and annotate complex binaries, retrieval-augmented systems for vulnerability and provenance reasoning, vector-based component matching, and agentic pipelines that automate the work a senior reverse engineer would otherwise do by hand. The throughline: ship AI systems that measurably move the needle on real RE and security workloads.',
+  },
+  {
+    title: 'AI Security & Red-Teaming',
+    body: 'Vulnerability research turned on AI systems themselves — jailbreaking and bypassing LLM safeguards, prompt injection and prompt extraction, adversarial inputs against multimodal and agentic systems, model-supply-chain analysis, and security evaluation of AI features inside security-critical products. The same instincts that find bugs in cuBLAS find bugs in the systems that use it.',
+  },
+  {
+    title: 'Programming Languages & Compilers',
+    body: 'My background includes DSL design, compiler construction, optimization systems, and intermediate representation (IR) engineering. I apply these principles to binary IRs (e.g., GTIRB), program rewriting, static numerical analysis, and pipeline optimization for large-scale analyses.',
+  },
+  {
+    title: 'Emulation & Digital Twin Technology',
+    body: 'I work on high-fidelity rehosting and digital-twin execution of embedded firmware. This includes peripheral modeling, hybrid analysis modes, deterministic replay, and integrating emulation into automated analysis pipelines for vulnerability research and system understanding.',
+  },
+  {
+    title: 'HPC & Distributed Systems',
+    body: 'Earlier research includes scalable algorithms for HPC systems, distributed genome assembly, MPI communication pattern analysis, and resilience techniques for large parallel codes. These foundations inform the scalability and robustness of my cybersecurity tooling.',
+  },
+];
+---
+
+<BaseLayout title="Research">
+  <PageHeader
+    eyebrow="Research"
+    title="Research areas"
+    lede="Six interlocking threads spanning firmware security, program analysis, AI-assisted reasoning, and the systems infrastructure that makes them scale."
+  />
+
+  <section class="container-wide pb-24">
+    <div class="grid gap-4 md:grid-cols-2">
+      {areas.map((area, i) => (
+        <article class="card">
+          <div class="text-xs font-medium" style="color:var(--color-accent)">{String(i + 1).padStart(2, '0')}</div>
+          <h2 class="mt-2 text-xl font-semibold">{area.title}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{area.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

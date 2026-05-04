@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const projects = [
+  {
+    name: 'Ghidra GPU Processor Modules',
+    tagline: 'NVIDIA SASS · AMD GFX · Intel Xe · Apple AGX',
+    role: 'Sole author',
+    body: 'Four open-source Ghidra processor modules that make GPU disassembly possible at all — covering NVIDIA SASS (sm_60–sm_120, Pascal through Blackwell, 100% decode on cuBLAS / cuSOLVER / cuRAND production libraries), AMD GFX7–GFX11 (37 targets across Sea Islands, Vega, CDNA, RDNA 1/2/3), Intel Gen9–Xe2 (503 instruction constructors across 5 architecture families), and Apple AGX G13–G16. Each module ships SLEIGH grammars, ELF loaders, custom analyzers, and post-analysis scripts. Used as the disassembly backbone of REAGRIND.',
+  },
+  {
+    name: 'REAGRIND & WarpGrind',
+    tagline: 'GPU binary analysis & rewriting · NVIDIA · AMD · Intel · Apple',
+    role: 'Lead developer & architect',
+    body: 'REAGRIND brings Ghidra-class reverse engineering to compiled GPU binaries — disassembling cubins, fatbins, and ROCm/oneAPI binaries through the four vendor-specific Ghidra processor modules I authored, then running 24+ analysis passes including Souffle Datalog dataflow, CWE detectors, GPU Bill-of-Materials extraction, and CVE matching. WarpGrind is its companion binary rewriting toolkit — a DARPA ERIS prototype (DARPA-SN-26-56) that extends GrammaTech\'s GTIRB intermediate representation to NVIDIA SASS for the first time in open source, applying coverage instrumentation, memory access logging, and AddressSanitizer-style bounds checking to cubins and reassembling them to byte-identical executables validated on a real A100. Together they form an analyze-then-instrument workflow for the AI infrastructure layer; both designed to run air-gapped.',
+  },
+  {
+    name: 'HALucinator',
+    tagline: 'High-fidelity firmware rehosting & digital twin platform',
+    role: 'Technical Lead',
+    body: 'HALucinator emulates real firmware as a high-fidelity digital twin — peripheral simulation, hybrid analysis modes, and modular runtime behavior that lets analysts interact with embedded systems without the original hardware. I drive its integration with REAFFIRM and Proteus into unified analysis workflows, and the alignment with AI-assisted reasoning that makes rehosted firmware tractable for vulnerability research at scale.',
+  },
+  {
+    name: 'REAFFIRM',
+    tagline: 'Modern firmware analysis platform · FastAPI · Postgres · containers',
+    role: 'Technical Lead & PI (AFX20)',
+    body: 'I led a complete architectural redesign of REAFFIRM into a modular FastAPI/Postgres system with full containerization, supporting AI-assisted analysis, automated SBOM/FBOM generation, rapid component extraction, and seamless integration into larger firmware-analysis workflows. The new architecture is the production backbone other tools (REAGRIND included) plug into. The work is delivered under the AFX20 program — where I serve as Principal Investigator advancing automated firmware triage, dynamic instrumentation, rehosting, and AI/LLM-driven interaction-policy generation across diverse embedded architectures.',
+  },
+  {
+    name: 'FABLE',
+    tagline: 'ML-based firmware discovery & component matching pipeline (a.k.a. FBME)',
+    role: 'Principal Investigator',
+    body: 'I direct the full lifecycle of the FABLE discovery pipeline (FBME) — ML-based component discovery, vector matching, cross-firmware capability mapping, and automated reporting. This includes the design and integration of matching engines, strings/statistical analysis modules, capability inference, multi-container orchestration, and the broader ecosystem of supporting tools that take FABLE from a research prototype to a production-grade analysis system.',
+  },
+  {
+    name: 'Proteus',
+    tagline: 'Rehosting platform with redesigned WebUI for partner demos',
+    role: 'Technical Lead',
+    body: 'I oversaw major advances in Proteus including Windows/Linux hybrid support, a fully redesigned WebUI, improved peripheral modeling, and optimized memory and performance behavior. Proteus now serves as a demonstration-ready rehosting UI for partners across government and industry.',
+  },
+];
+---
+
+<BaseLayout title="Projects">
+  <PageHeader
+    eyebrow="Programs & Projects"
+    title="What I'm building"
+    lede="Active programs and platforms supporting GPU and firmware analysis, reverse engineering, and AI-assisted reasoning for national-security and embedded-systems missions."
+  />
+
+  <section class="container-wide pb-24">
+    <div class="space-y-4">
+      {projects.map(p => (
+        <article class="card">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <h2 class="text-xl font-semibold">{p.name}</h2>
+              {p.tagline && <div class="mt-1 text-sm text-[var(--color-text-muted)]">{p.tagline}</div>}
+            </div>
+            <span class="chip whitespace-nowrap">{p.role}</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-muted)]">{p.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
