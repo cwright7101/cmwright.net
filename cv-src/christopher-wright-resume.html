@@ -1,0 +1,276 @@
+<!doctype html>
+<!--
+  Public resume for cmwright.net — source of truth for
+  /public/cv/christopher-wright-resume.pdf
+  Regenerate with:  npm run resume:pdf
+  This is deliberately NOT identical to the private DOCX/PDF resume set:
+  clearance is stated as available on request and the provisional patent
+  serial is omitted. xpu-forge and rehostry are listed under Open Source on
+  the understanding that both repositories go public.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Christopher M. Wright, Ph.D. — Resume</title>
+<style>
+  @page { size: letter; margin: 0.45in 0.55in; }
+
+  :root {
+    --ink: #16181d;
+    --ink-soft: #3a3f4a;
+    --rule: #b9bec8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.22;
+    color: var(--ink);
+  }
+
+  /* ---- masthead ---- */
+  .name {
+    margin: 0;
+    text-align: center;
+    font-size: 17pt;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  /* the degree keeps its own casing inside the uppercased name */
+  .name .phd { text-transform: none; letter-spacing: 0.01em; }
+
+  .contact {
+    margin: 3pt 0 0;
+    text-align: center;
+    font-size: 8.6pt;
+    color: var(--ink-soft);
+  }
+  .contact span { white-space: nowrap; }
+  .sep { padding: 0 5pt; color: var(--rule); }
+
+  /* ---- sections ---- */
+  h2 {
+    margin: 7.5pt 0 3pt;
+    padding-bottom: 2pt;
+    border-bottom: 0.6pt solid var(--rule);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    break-after: avoid;
+  }
+
+  p { margin: 0 0 2.6pt; }
+
+  ul { margin: 0; padding-left: 12pt; }
+  li { margin: 0 0 1.7pt; break-inside: avoid; }
+  li::marker { color: var(--ink-soft); }
+
+  .lead-in { font-weight: 600; }
+
+  /* ---- appointments ---- */
+  .role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12pt;
+    margin-top: 4pt;
+  }
+  .role:first-of-type { margin-top: 2pt; }
+  .org { font-weight: 700; }
+  .dates { font-size: 8.6pt; color: var(--ink-soft); white-space: nowrap; }
+  .titles {
+    margin: 0.5pt 0 3pt;
+    font-style: italic;
+    font-size: 8.8pt;
+    color: var(--ink-soft);
+  }
+  .titles + ul { margin-top: 1pt; }
+
+  .degree { margin-bottom: 2pt; }
+  .degree .what { font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <h1 class="name">Christopher Wright, <span class="phd">Ph.D.</span></h1>
+  <p class="contact">
+    <span>Mansfield, TX</span><span class="sep">|</span><span>(832) 310-8396</span><span class="sep">|</span><span>cwright7101@gmail.com</span><span class="sep">|</span><span>www.cmwright.net</span><span class="sep">|</span><span>github.com/cwright7101</span>
+  </p>
+
+  <h2>Research Areas</h2>
+  <p>
+    Firmware and embedded systems security; rehosting, emulation, and digital twins; reverse engineering and
+    vulnerability research; GPU and accelerator security; FPGA and bitstream analysis; binary code similarity;
+    applied and agentic AI for security, including AI red-teaming; compilers, program analysis, and
+    high-performance computing.
+  </p>
+
+  <h2>Experience</h2>
+
+  <div class="role"><span class="org">GrammaTech, Inc.</span><span class="dates">June 2022 – Present</span></div>
+  <p class="titles">Principal Scientist and Principal Investigator (2026 – Present) | Senior Scientist III (2025 – 2026) |
+    Senior Scientist II (2023 – 2024) | Lead Software Engineer (2022 – 2023)<br>
+    Concurrent: Technical Lead, FPGA Security Research</p>
+  <ul>
+    <li><span class="lead-in">Portfolio direction.</span> Directs concurrent DARPA and government research
+      programs spanning firmware analysis, GPU binary security, and verifiable AI for DoD and IC customers,
+      owning technical direction, staffing and resourcing, and sponsor reporting.</li>
+    <li><span class="lead-in">Capture.</span> Won the firmware component discovery and matching effort through
+      the NSTXL consortium for Navy Crane — Phase 1 and Phase 2 delivered, now in Phase 3 transition. Captured
+      the firmware analysis platform as a Direct-to-Phase-II award, then won its Phase II extension, sustaining
+      the program across two consecutive funding actions.</li>
+    <li><span class="lead-in">Proposals and partnerships.</span> Leads proposal development and teaming across
+      DARPA, Air Force, and Navy solicitations — including a DARPA Direct-to-Phase-II SBIR as prime — with
+      defense primes, nonprofit research institutes, national laboratories, and universities. Program-manager
+      outreach and profiling across DARPA offices.</li>
+    <li><span class="lead-in">REAGRIND and WarpGrind.</span> Multi-vendor GPU binary analysis built on Ghidra
+      P-code: 24+ analysis passes, CWE detectors, bill-of-materials extraction, hardware-validated across NVIDIA
+      SASS sm_60–sm_100; extended to GPU microcontroller firmware for secure-boot analysis. WarpGrind, the
+      companion rewriting toolkit and DARPA ERIS prototype, extends the GTIRB intermediate representation to
+      NVIDIA SASS, applying coverage instrumentation and bounds checking to cubins and reassembling them
+      byte-identically.</li>
+    <li><span class="lead-in">REAFFIRM, Proteus, FABLE, HALucinator.</span> Firmware analysis service supporting
+      AI-assisted analysis and SBOM/FBOM generation, delivered under the AFX20 program; hybrid rehosting
+      platform; ML-based component discovery and matching pipeline; technical lead for the HALucinator rehosting
+      and digital-twin platform and its integration into those workflows. Earlier work on cross-architecture
+      function matching over a binary intermediate representation.</li>
+    <li><span class="lead-in">Trustworthy AI for analysis workflows.</span> Principal investigator on a DARPA
+      effort building a system in which a language model plans and narrates data analysis but never computes the
+      numbers, with every reported value bound to a replayable provenance record. Established that a naive
+      automated auditor understated fabrication rates by roughly 27x, so auditors must themselves be validated
+      before they are trusted.</li>
+    <li><span class="lead-in">On-premise model infrastructure.</span> Specified and stood up the GPU inference
+      deployment that grew from a single project server into the company-wide resource, against a CUI and
+      NIST 800-171 compliance boundary.</li>
+    <li><span class="lead-in">FPGA security research.</span> Technical lead. Static analysis of FPGA designs
+      recovered from vendor bitstreams; export-controlled.</li>
+  </ul>
+
+  <div class="role"><span class="org">Sandia National Laboratories</span><span class="dates">May 2019 – July 2022</span></div>
+  <p class="titles">Senior Scientist and Engineer, R&amp;D Cybersecurity (2021 – 2022) | Graduate Scholar Researcher (2019 – 2021)</p>
+  <ul>
+    <li><span class="lead-in">Intrusion detection for field devices that cannot defend themselves (patented).</span>
+      Co-invented a system that builds a live digital twin of a deployed RTU or PLC from its own firmware, mirrors
+      production traffic to it, and instruments the twin with defenses the physical hardware cannot carry — heap
+      guards, return-address protection emitted into the emulator&rsquo;s instruction translation, exception-vector
+      detectors, and configuration-integrity checks — detecting unknown attacks by catching attack primitives
+      rather than signatures.</li>
+    <li><span class="lead-in">VxWorks rehosting and performance.</span> Built the VxWorks rehosting support layer
+      for HALucinator and replaced interpreted intercept handlers with injected C drivers against native emulated
+      peripherals, taking Ethernet frame handling from seconds to roughly 100–200 ms.</li>
+    <li>Reverse engineering and zero-day discovery in source and binary firmware; Ghidra tooling for function
+      matching and execution tracing.</li>
+  </ul>
+
+  <div class="role"><span class="org">Independent Research</span><span class="dates">2016 – Present</span></div>
+  <!--
+    Dated 2016–Present. Per-project years are intentionally omitted here. The electronic tape measure
+    is 2015 and already appears under Utah Valley University in Earlier Research Positions, so it is
+    not repeated.
+  -->
+  <ul>
+    <li><span class="lead-in">Firmware rehosting at fleet scale.</span> An agent-driven pipeline producing 219 device
+      rehosts, 176 at verified fidelity across 8 instruction-set families, governed by an M1–M8 evidence ladder in
+      which each rung names the failure mode it excludes and the observation that would refute it. It generates
+      every attack harness itself — no person wrote one — and is steered rather than autonomous by design, with
+      controls that catch it producing confident, well-formed, wrong results. Contributions include a
+      guest-stall control that detects harnesses measuring themselves, and PeriphSynth, hardware model synthesis
+      on local open-weight models with a controlled ablation returning a negative result.</li>
+    <li><span class="lead-in">Vulnerability discovery.</span> 42 previously unknown vulnerabilities in commercial
+      embedded and ICS/OT firmware, in coordinated disclosure.</li>
+    <li><span class="lead-in">AI red-teaming.</span> Jailbreaking and safeguard bypass, prompt injection and
+      extraction, adversarial inputs against multimodal and agentic systems, and model supply-chain analysis.</li>
+    <li><span class="lead-in">Binary code similarity.</span> A calibrated multi-channel consensus method over Ghidra
+      P-code that trains no similarity model of its own, with documented defects in the most-used public
+      benchmark.</li>
+    <li><span class="lead-in">FPGA hardware Trojan detection.</span> Static, test-vector-free detection of
+      don&rsquo;t-care-transition Trojans on gate-level netlists reconstructed from bitstreams, using BDD-backed
+      finite-state-machine reachability, with a vendor-neutral reconstruction backend across iCE40, ECP5, 7-series,
+      and UltraScale.</li>
+    <li><span class="lead-in">Machine learning.</span> A depth-resolved study of predictive coding against
+      backpropagation, with a companion methodological paper on agent-run pre-registered research.</li>
+    <li><span class="lead-in">Consulting and advisory.</span> Selective engagements in architecture design,
+      capability prototyping, technical evaluation, and research collaboration for cybersecurity and
+      embedded-systems teams.</li>
+    <li><span class="lead-in">Automatic GPU code generation.</span> A Clang/LLVM source-to-source compiler
+      that identifies C++ code likely to run well on a GPU and translates it to CUDA automatically.</li>
+  </ul>
+
+  <div class="role"><span class="org">Earlier Research Positions</span><span class="dates">2015 – 2021</span></div>
+  <ul>
+    <li><span class="lead-in">Facebook</span>, Software Engineer Intern, Systems and Infrastructure (2020):
+      polyhedral and numerical analysis over millions of lines of C and C++ for vulnerability discovery, plus
+      source-to-sink taint propagation used by security analysts.</li>
+    <li><span class="lead-in">Purdue University</span>, Research Assistant under Milind Kulkarni (2015 – 2021,
+      concurrent with Sandia): firmware emulation and rehosting; compiler and domain-specific language design.</li>
+    <li><span class="lead-in">Pacific Northwest National Laboratory</span> (2018) and
+      <span class="lead-in">Lawrence Livermore National Laboratory</span> (2016): distributed and parallel
+      algorithms on laboratory supercomputers; LLVM passes recovering the communication structure of MPI
+      programs.</li>
+  </ul>
+
+  <h2>Open Source</h2>
+  <ul>
+    <li><span class="lead-in">xpu-forge</span> — Ghidra processor modules for NVIDIA, AMD, Intel, and Apple GPUs.
+      Sole author. NVIDIA SASS (sm_60–sm_120, Pascal through Blackwell, full decode on production cuBLAS,
+      cuSOLVER, and cuRAND libraries), AMD GFX7–GFX11 across 37 targets, Intel Gen9–Xe2, and Apple AGX G13–G16,
+      with SLEIGH grammars, ELF loaders, and custom analyzers. The disassembly backbone of REAGRIND.</li>
+    <li><span class="lead-in">HALucinator</span> — contributor and release maintainer for the open-source firmware
+      rehosting framework: VxWorks support, architecture expansion, debugging integration, and the fixes
+      underlying the device fleet above.</li>
+    <li><span class="lead-in">rehostry</span> — the device fleet: a per-device repository for each rehosted
+      device, carrying the emulation model, the fidelity evidence and controls, and the framework version it was
+      verified against. Firmware bytes are never committed.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p class="degree"><span class="what">Ph.D., Electrical and Computer Engineering</span> — Purdue University, 2021.
+    Advisor: Milind Kulkarni. Dissertation: &ldquo;Emulation for Multiple Instruction Set Architectures.&rdquo;</p>
+  <p class="degree"><span class="what">M.S., Electrical and Computer Engineering</span> — Purdue University</p>
+  <p class="degree"><span class="what">B.S., Computer Engineering</span> — Utah Valley University, 2015, cum laude,
+    minor in Computer Science</p>
+
+  <h2>Selected Publications</h2>
+  <ul>
+    <li>C. Wright, W. Moeglein, S. Bagchi, M. Kulkarni, A. Clements. &ldquo;Challenges in Firmware Re-Hosting,
+      Emulation, and Analysis.&rdquo; <em>ACM Computing Surveys</em> 54(1), Article 5, 2022.</li>
+    <li>A. Clements, L. Carpenter, W. Moeglein, C. Wright. &ldquo;Is Your Firmware Real or Re-Hosted?&rdquo;
+      Workshop on Binary Analysis Research (BAR), 2021.</li>
+    <li>A. Clements, L. Carpenter, W. Moeglein, C. Wright. &ldquo;Scalable Firmware Re-Hosting.&rdquo;
+      Sandia National Laboratories Technical Report SAND2021-11756, 2021.</li>
+    <li>C. Wright, A. Krishnamoorty, M. Kulkarni. &ldquo;Multi-k de Bruijn Graph Based Genome Assembly.&rdquo;
+      Algorithms for Computational Biology (AlCoB), 2019.</li>
+  </ul>
+
+  <h2>Under Submission</h2>
+  <ul>
+    <li>C. Wright. Sole-authored paper on a falsifiable protocol for automated firmware rehosting at fleet
+      scale. Network and Distributed System Security Symposium (NDSS) 2027.</li>
+    <li>C. Wright. Sole-authored paper on calibrated multi-channel consensus for deployment-scale binary code
+      similarity. Network and Distributed System Security Symposium (NDSS) 2027.</li>
+  </ul>
+
+  <h2>Patents</h2>
+  <ul>
+    <li>&ldquo;System and Methods for Intrusion Detection and Prevention Using Firmware Re-Hosting.&rdquo;
+      Sandia National Laboratories, under U.S. Department of Energy / NNSA Contract DE-NA0003525.</li>
+    <li>&ldquo;System and Method for Static GPU Binary Instrumentation via Processor Specification Round-Trip
+      with Shadow-Slot Exfiltration.&rdquo; Provisional application filed August 2026. Sole inventor.</li>
+  </ul>
+
+  <h2>Teaching, Service, and Affiliations</h2>
+  <ul>
+    <li>Instructor, Purdue University ECE 368, Data Structures and Algorithms (evaluations 4.5 and 4.7 of 5);
+      teaching assistant for compiler construction and data structures.</li>
+    <li>Member, IEEE, ACM, and Eta Kappa Nu. Security clearance: details available on request.</li>
+  </ul>
+
+</body>
+</html>
