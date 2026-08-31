@@ -10,10 +10,10 @@ const projects = [
     body: 'Four open-source Ghidra processor modules that make GPU disassembly possible at all — covering NVIDIA SASS (sm_60–sm_120, Pascal through Blackwell, 100% decode on cuBLAS / cuSOLVER / cuRAND production libraries), AMD GFX7–GFX11 (37 targets across Sea Islands, Vega, CDNA, RDNA 1/2/3), Intel Gen9–Xe2 (503 instruction constructors across 5 architecture families), and Apple AGX G13–G16. Each module ships SLEIGH grammars, ELF loaders, custom analyzers, and post-analysis scripts. Used as the disassembly backbone of REAGRIND.',
   },
   {
-    name: 'REAGRIND & WarpGrind',
+    name: 'REAGRIND',
     tagline: 'GPU binary analysis & rewriting · NVIDIA · AMD · Intel · Apple',
     role: 'Lead developer & architect',
-    body: 'REAGRIND brings Ghidra-class reverse engineering to compiled GPU binaries — disassembling cubins, fatbins, and ROCm/oneAPI binaries through the four vendor-specific Ghidra processor modules I authored, then running 24+ analysis passes including Souffle Datalog dataflow, CWE detectors, GPU Bill-of-Materials extraction, and CVE matching. WarpGrind is its companion binary rewriting toolkit — a DARPA ERIS prototype (DARPA-SN-26-56) that extends GrammaTech\'s GTIRB intermediate representation to NVIDIA SASS for the first time in open source, applying coverage instrumentation, memory access logging, and AddressSanitizer-style bounds checking to cubins and reassembling them to byte-identical executables validated on a real A100. Together they form an analyze-then-instrument workflow for the AI infrastructure layer; both designed to run air-gapped.',
+    body: 'REAGRIND brings Ghidra-class reverse engineering to compiled GPU binaries — disassembling cubins, fatbins, and ROCm/oneAPI binaries through the four vendor-specific Ghidra processor modules I authored, then running 24+ analysis passes including Souffle Datalog dataflow, CWE detectors, GPU Bill-of-Materials extraction, and CVE matching. The same SLEIGH specifications drive static binary rewriting, now native to REAGRIND: coverage instrumentation, memory access logging, and AddressSanitizer-style bounds checking applied to cubins and reassembled to byte-identical executables, hardware-validated on a real A100. That capability began as a DARPA ERIS prototype and is the subject of a provisional patent on processor-specification round-trip instrumentation. Together they form an analyze-then-instrument workflow for the AI infrastructure layer, designed to run air-gapped.',
   },
   {
     name: 'HALucinator',
